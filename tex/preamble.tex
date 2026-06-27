@@ -1,0 +1,121 @@
+% Page layout and margins
+\usepackage[
+  a4paper,% set the paper size to A4
+  top=2.5cm, % top margin of 2.5cm
+  bottom=2.5cm, % bottom margin of 2.5cm
+  inner=3cm, % inner margin for binding side
+  outer=2.5cm, % outer margin on the opposite edge
+  headheight=15pt % reserve space for running headers
+]{geometry}
+
+% Font and typography
+\usepackage{fontspec} % required for font selection under XeLaTeX/LuaLaTeX
+\setmainfont{Times New Roman} % set the main text font
+
+% Utility packages
+\usepackage{fmtcount} % format counters as words or padded numbers
+\usepackage{lipsum} % sample text generator used for draft content
+\usepackage{xcolor} % color support, also used by tables and links
+
+% Mathematics and bibliography
+\usepackage{amsmath} % improved math typesetting environment
+\usepackage{amssymb} % additional math symbols
+\usepackage[style=ieee, backend=biber]{biblatex} % IEEE citation style using biber
+\addbibresource{lab-01/references.bib} % bibliography database file
+
+% Graphics and floating material
+\usepackage{graphicx} % image insertion
+\usepackage{float} % improved float placement controls
+\usepackage{tikz} % vector graphics drawing package
+
+% Custom graphics wrapper: show placeholder if image is missing
+\usepackage{xparse}
+\let\OriginalIncludeGraphics\includegraphics
+\RenewDocumentCommand{\includegraphics}{O{}m}{%
+  \IfFileExists{#2}{\OriginalIncludeGraphics[#1]{#2}}{%
+    \fbox{\parbox[c][5cm][c]{\linewidth}{\centering Missing image\\\detokenize{#2}}}%
+  }%
+}
+
+% Caption appearance
+\usepackage[
+  format=plain, % plain caption format without fancy indentation
+  labelfont=bf, % bold font for figure/table labels
+  font=small, % smaller caption text
+  justification=centering % center captions under figures/tables
+]{caption}
+\usepackage{subcaption} % subfigure/subtable support
+
+% Text spacing and paragraph formatting
+\usepackage{setspace} % control line spacing
+\usepackage{ragged2e} % improved ragged text commands
+\usepackage{xurl} % better URL line breaking
+\urlstyle{same} % keep URLs in the same font as surrounding text
+\setstretch{1.25} % 1.25 line spacing for readable paragraphs
+\setlength{\parskip}{6pt} % space between paragraphs
+\setlength{\parindent}{0pt} % no paragraph indentation
+\setlength{\emergencystretch}{2em} % allow extra space for line breaking
+
+% List formatting
+\usepackage{enumitem} % customize list spacing and indents
+\setlist[enumerate]{topsep=4pt, itemsep=2pt, leftmargin=1.8em} % enumerate spacing
+\setlist[itemize]{topsep=4pt, itemsep=2pt, leftmargin=1.8em} % itemize spacing
+
+% Table tools
+\usepackage{booktabs} % professional-looking table rules
+\usepackage{longtable} % tables that span multiple pages
+\usepackage{array} % enhanced column definitions
+\usepackage{multirow} % cells spanning multiple rows
+\usepackage{makecell} % multiline table cells
+
+% Counter formatting
+\usepackage{chngcntr} % change counter behavior
+\counterwithin{figure}{chapter} % reset figure numbers per chapter
+\counterwithin{table}{chapter} % reset table numbers per chapter
+
+% Hyperlinks and PDF metadata
+\usepackage{hyperref} % hyperlink support in PDF output
+\hypersetup{
+  colorlinks=true, % use colored text for links instead of boxes
+  linkcolor=black, % internal links in black
+  citecolor=black, % citation links in black
+  urlcolor=black, % URL links in black
+  pdfborder={0 0 0}, % no border around links
+  breaklinks=true % allow links to break across lines
+}
+
+% Bibliography text justification
+\AtBeginBibliography{\justifying} % justify bibliography entries
+
+% Header/footer layout
+\usepackage{fancyhdr} % custom headers and footers
+\usepackage{lastpage} % reference the last page number
+\pagestyle{fancy} % use fancyhdr page style
+\fancyhf{} % clear existing header/footer fields
+
+% Running header and footer content
+\renewcommand{\chaptermark}[1]{\markboth{Experiment\ \thechapter}{}} % chapter header text
+\renewcommand{\sectionmark}[1]{\markboth{#1}{}} % section header text
+\fancyhead[EL]{\small \CourseCode} % left header on even pages
+\fancyhead[ER]{%
+  \small Experiment
+  \ifnum\value{chapter}<10 0\fi\arabic{chapter}} % right header on even pages
+\fancyhead[OL]{\small \rightmark} % left header on odd pages
+\fancyhead[OR]{\small \leftmark} % right header on odd pages
+\fancyfoot[C]{\small Page \thepage} % centered footer page number
+\renewcommand{\headrulewidth}{0.5pt} % header rule thickness
+
+% Chapter title formatting
+\usepackage{titlesec} % custom section/chapter title control
+\newcommand{\twodigits}[1]{%
+  \ifnum#1<10 0\fi\number#1%
+}
+\titleformat{\chapter}[block]
+{\normalfont} % normal font style for chapter title block
+{{\large\bfseries Experiment No:} \large\twodigits{\value{chapter}}} % numbered label
+{0pt} % separation between label and title
+{\\[1.5ex]{\large\bfseries Name of Experiment:} \large} % prefix text before title
+\titlespacing*{\chapter}{0pt}{-40pt}{2ex} % chapter spacing before/after
+\titlespacing*{\section}{0pt}{1.2em}{0.6em} % section spacing before/after
+\titlespacing*{\subsection}{0pt}{0.9em}{0.5em} % subsection spacing
+\titlespacing*{\subsubsection}{0pt}{0.7em}{0.4em} % subsubsection spacing

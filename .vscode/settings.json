@@ -1,0 +1,33 @@
+{
+  "latex-workshop.latex.outDir": "./compiled",
+  "latex-workshop.latex.auxDir": "./auxiliary",
+  "latex-workshop.latex.tools": [
+    {
+      "name": "latexmk_xelatex",
+      "command": "latexmk",
+      "args": [
+        "-xelatex",
+        "-synctex=1",
+        "-interaction=nonstopmode",
+        "-file-line-error",
+        "-outdir=compiled",
+        "-auxdir=auxiliary",
+        "%DOC%"
+      ],
+      "env": {}
+    }
+  ],
+  "latex-workshop.latex.recipes": [
+    {
+      "name": "XeLaTeX",
+      "tools": ["latexmk_xelatex"]
+    }
+  ],
+  "latex-workshop.latex.recipe.default": "XeLaTeX",
+  "[latex]": {
+    "editor.defaultFormatter": "James-Yu.latex-workshop",
+    "editor.formatOnSave": true
+  },
+  "latex-workshop.formatting.latexindent.path": "latexindent.exe",
+  "latex-workshop.formatting.latex": "latexindent"
+}
