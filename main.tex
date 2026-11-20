@@ -1,10 +1,41 @@
-\documentclass[12pt, a4paper, twoside]{report}
+\documentclass[12pt,a4paper,twoside]{report}
 
-\title{EEE 2187 Lab Reports}
-\author{Tasnimul Hasan}
+\input{preamble}
 
-\input{tex/preamble}
+
+\input{metadata}
+
+\input{cover/main}
+
+\newcommand{\ExperimentNo}{1}
+\newcommand{\ExperimentName}{Simulation of Separately Excited DC Motor Characteristics using MATLAB Simulink}
+\newcommand{\ExperimentDate}{23 July 2026}
+\newcommand{\SubmissionDate}{7 July 2026}
 
 \begin{document}
-\maketitle
+
+\setcounter{chapter}{\numexpr\ExperimentNo-1\relax}
+
+\GenerateCoverPage
+{\twodigits{\number\numexpr\ExperimentNo\relax}}
+{\ExperimentName}
+{\ExperimentDate}
+{\SubmissionDate}
+
+\chapter{\ExperimentName}
+
+\input{sections/objectives}
+\input{sections/introduction}
+\input{sections/apparatus}
+\input{sections/procedure}
+\input{sections/data-table}
+\input{sections/calculation}
+\input{sections/result}
+\input{sections/discussion}
+\input{sections/conclusion}
+\input{sections/reference}
+
+
+\setcounter{section}{0}
+
 \end{document}
