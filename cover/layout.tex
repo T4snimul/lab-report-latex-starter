@@ -5,7 +5,7 @@
 \newcounter{PreCoverPageNum}
 
 
-\newcommand{\GenerateCoverPage}[4]{
+\newcommand{\GenerateCoverPage}[1]{
   \clearpage % Flush any pending pages before capturing the count
   \setcounter{PreCoverPageNum}{\value{page}} % Store the CURRENT page number
 
@@ -27,10 +27,7 @@
     \begin{tabular}{@{}p{4.2cm} @{\hspace{0.1cm} : \hspace{0.2cm}} p{8.0cm}@{}}
       Course Title       & \CourseTitle \\
       Course Code        & \CourseCode  \\
-      Experiment No      & #1           \\
-      Name of Experiment & #2           \\
-      Date of Experiment & #3           \\
-      Date of Submission & #4           \\
+      Date of Submission & #1           \\
     \end{tabular}\\[1.6cm]
 
     % --- Submission Box Configuration ---

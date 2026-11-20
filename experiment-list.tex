@@ -1,0 +1,59 @@
+\usepackage{tabularx}
+
+\newcommand{\GenerateExperimentListPage}{
+  \clearpage
+  \thispagestyle{empty}
+
+  \begin{center}
+    {\small\textit{\Motto}}\\[0.25cm]
+    {\large\textbf{\UniversityName}}\\[0.45cm]
+    \includegraphics[width=2.2cm]{cover/ruet_logo.png}\\[0.25cm]
+    {\small\textbf{Course Code: \CourseCode}}\\[-0.05cm]
+    {\small\textbf{Course Title: \CourseTitle}}
+  \end{center}
+
+  \vspace{0.25cm}
+  \noindent\textbf{Submitted By:} \StudentName\\[-0.05cm]
+  \noindent\textbf{Roll Number:} \StudentRoll
+
+  \vspace{0.3cm}
+  \begin{center}
+    \textbf{Table: List of Experiments}
+  \end{center}
+
+  \renewcommand{\arraystretch}{1.2}
+  \setlength{\tabcolsep}{3pt}
+  \small
+  \begin{tabularx}{\textwidth}{|>{\centering\arraybackslash}p{0.55cm}|
+                  X|
+                  >{\centering\arraybackslash}p{1.45cm}|
+                  >{\centering\arraybackslash}p{0.85cm}|
+                  >{\centering\arraybackslash}p{0.85cm}|
+                  p{1.45cm}|}
+    \hline
+    \textbf{No.} & \centering\textbf{Experiment Name} & \centering\textbf{Signing Date} &
+    \textbf{Pages} & \textbf{Grade} & \centering\textbf{Remarks} \tabularnewline
+    \hline
+    1 & \ExperimentOne & & & & \\
+    \hline
+    2 & \ExperimentTwo & & & & \\
+    \hline
+    3 & \ExperimentThree & & & & \\
+    \hline
+    4 & \ExperimentFour & & & & \\
+    \hline
+    5 & \ExperimentFive & & & & \\
+    \hline
+    6 & \ExperimentSix & & & & \\
+    \hline
+    7 & \ExperimentSeven & & & & \\
+    \hline
+    8 & \ExperimentEight & & & & \\
+    \hline
+    9 & \ExperimentNine & & & & \\
+    \hline
+  \end{tabularx}
+
+  \vspace{0.35cm}
+  \noindent *R = Repeat\hspace{1.5cm}*L = Late Submission
+}
