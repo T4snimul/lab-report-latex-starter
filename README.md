@@ -1,7 +1,9 @@
 # Lab Report LaTeX Starter
+
 This is a public template for writing lab reports using LaTeX for university students.
 
 ## Pre-requisites
+
 - LaTeX Compiler
   - Windows: [MikTex](https://miktex.org/download)
   - Mac: [MacTex](https://www.tug.org/mactex/mactex-download.html)
@@ -9,6 +11,9 @@ This is a public template for writing lab reports using LaTeX for university stu
 
 - Packages
   - Formatter: `latexindent`
+
+- Package Managers
+  - Windows: [Strawberry Perl](https://strawberryperl.com/)
 
 - VS Code Extensions
   - LaTeX Workshop: `ext install James-Yu.latex-workshop` (to be run from the command palette)
